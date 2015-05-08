@@ -11,6 +11,7 @@
 
 #define lightPin A1                  // light sensor
 #define DHTPin 2                     // humidity & temp sensor
+#define dataWriteFreq 1000 * 60 * 10 // write data every 10 minutes
 
 int brightness, humidity, temp;
 
