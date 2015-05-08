@@ -20,7 +20,6 @@ DHT dht; // humidity & temp
 void setup() {
 	delay(450);               // wait for serial to stabilize
 	Serial.begin(9600);       // start talking
-	pinMode(lightPin, INPUT); // set light sensor pin to INPUT
 	dht.setup(DHTPin);        // initialize temp & humidity
 }
 
