@@ -28,19 +28,24 @@ void loop() {
 	brightness = analogRead(lightPin);
 	humidity = dht.getHumidity();
 	temp = dht.getTemperature();
-	// print brightness
-	Serial.print("b");
-	Serial.println(brightness);
-
-	// print humidity
-	Serial.print("h");
-	Serial.println(humidity);
-	
-	// print temperature
-	Serial.print("t");
-	Serial.println(temp);
 	
 	// print hella simple checksum
 	Serial.print("c");
+	Serial.print(brightness + humidity + temp);
+	Serial.print(".");
+
+	// print brightness
+	Serial.print(brightness);
+	Serial.print(".");
+
+	// print humidity
+	Serial.print(humidity);
+	Serial.print(".");
+
+	// print temperature
+	Serial.print(temp);
+	Serial.print(".");
+
+	// print checksum again
 	Serial.println(String(brightness + humidity + temp));
 }
