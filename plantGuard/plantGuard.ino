@@ -11,9 +11,10 @@
 
 #define lightPin A1                  // light sensor
 #define DHTPin 2                     // humidity & temp sensor
-#define dataWriteFreq 1000 * 60 * 10 // write data every 10 minutes
+#define dataWriteFreq 5000           // data write frequency
 
 int brightness, humidity, temp;
+int writeDataAt = millis() + dataWriteFreq;
 
 DHT dht; // humidity & temp
 
@@ -50,4 +51,27 @@ void loop() {
 
 	// print checksum again
 	Serial.println(String(brightness + humidity + temp));
+
+	// write data to EEPROM if ready
+	// just pretend for now
+	if(millis() >= writeDataAt) {
+		Serial.println("DATA WRITING TIME!");
+		writeDataAt = millis() + dataWriteFreq;
+	}
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
