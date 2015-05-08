@@ -9,22 +9,24 @@
 // fetch from https://github.com/markruys/arduino-DHT
 #include "DHT.h"
 
-#define lightPin A1
-#define DHTPin 2
+#define lightPin A1                  // light sensor
+#define DHTPin 2                     // humidity & temp sensor
 
 int brightness, humidity, temp;
 
-DHT dht;
+DHT dht; // humidity & temp
 
 void setup() {
-	delay(450);
-	Serial.begin(9600);
-	pinMode(lightPin, INPUT);
-	dht.setup(DHTPin);
+	delay(450);               // wait for serial to stabilize
+	Serial.begin(9600);       // start talking
+	pinMode(lightPin, INPUT); // set light sensor pin to INPUT
+	dht.setup(DHTPin);        // initialize temp & humidity
 }
 
 void loop() {
-	delay(dht.getMinimumSamplingPeriod());
+	delay(dht.getMinimumSamplingPeriod()); // wait a little
+
+	// get data
 	brightness = analogRead(lightPin);
 	humidity = dht.getHumidity();
 	temp = dht.getTemperature();
