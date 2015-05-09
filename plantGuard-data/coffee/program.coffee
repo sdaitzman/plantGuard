@@ -12,5 +12,3 @@ serialPort.on 'open', ->
 		console.log 'results ' + results
 		return
 	return
-
-console.log "hello world"

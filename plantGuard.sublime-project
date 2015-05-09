@@ -3,6 +3,10 @@
 	[
 		{
 			"path": "."
+		},
+		{
+			"follow_symlinks": true,
+			"path": "/Users/samuel/Documents/Arduino/saveTheFireFighters"
 		}
 	]
 }
