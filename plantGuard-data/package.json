@@ -1,0 +1,7 @@
+{
+	"name": "plantGuard",
+	"main": "index.html",
+	"scripts": {
+		"start": "nw"
+	}
+}

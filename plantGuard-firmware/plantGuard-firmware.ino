@@ -52,6 +52,19 @@ void loop() {
 	// print checksum again
 	Serial.println(String(brightness + humidity + temp));
 
+
+
+
+	// every second, read data and add to 5s rolling average
+
+	// every 5s, write 5s rolling average to 60s rolling average
+
+	// every 10m, average past  
+
+
+
+
+
 	// write data to EEPROM if ready
 	// just pretend for now
 	if(millis() >= writeDataAt) {
