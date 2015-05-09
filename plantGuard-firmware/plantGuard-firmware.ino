@@ -142,9 +142,19 @@ void resetHasBeens() {
 // print data out at index
 // index 0 = past 1s, index 1 = past 5s, index 2 = past 1m, index 3 = past 10m
 void printData(int index) {
-	Serial.println(brightnessMean[index]);
-	Serial.println(humidityMean[index]);
-	Serial.println(tempMean[index]);
+	// first print random number for checksum
+	unsigned int randomCheck = random(0, 65535);
+	Serial.print("[");
+	Serial.print(randomCheck);           Serial.print(" ");
+
+	// print actual data
+	Serial.print(brightnessMean[index]); Serial.print(" ");
+	Serial.print(humidityMean[index]);   Serial.print(" ");
+	Serial.print(tempMean[index]);       Serial.print(" ");
+
+	// now for a hella simple checksum
+	Serial.print(brightnessMean[index] + humidityMean[index] + tempMean[index] + randomCheck);
+	Serial.println("]");
 }
 
 
