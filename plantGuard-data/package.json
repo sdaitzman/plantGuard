@@ -1,7 +1,13 @@
 {
-	"name": "plantGuard",
-	"main": "index.html",
-	"scripts": {
-		"start": "nw"
-	}
+  "name": "plantGuard",
+  "description": "WIP. A simple, open-source program that monitors your plants.",
+  "repository": "https://github.com/sdaitzman/plantGuard",
+  "main": "index.html",
+  "scripts": {
+    "start": "nw"
+  },
+  "devDependencies": {
+    "gulp": "^3.8.11",
+    "gulp-sass": "^2.0.0"
+  }
 }
