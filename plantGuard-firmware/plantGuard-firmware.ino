@@ -32,6 +32,33 @@ void setup() {
 
 void loop() {
 
+	checkTimers();
+
+	if(hasBeen1s == true) {
+		// get data
+		brightnessMean[0] = analogRead(lightPin);
+		humidityMean[0] = dht.getHumidity();
+		tempMean[0] = dht.getTemperature();
+	}
+
+	if(hasBeen5s == true) {
+
+	}
+
+	if(hasBeen1m == true) {
+
+	}
+
+	if(hasBeen10m == true) {
+
+	}
+
+	
+	resetHasBeens();
+}
+
+// check timers
+void checkTimers() {
 	if(millis() >= data10m) {
 		data10m += 600000;
 		hasBeen10m = true;
@@ -51,54 +78,15 @@ void loop() {
 		data1s += 1000;
 		hasBeen1s = true;
 	}
+}
 
-
-	if(hasBeen1s == true) {
-		Serial.println("has been 1s");
-	}
-
-	if(hasBeen5s == true) {
-		Serial.println("has been 5s");
-	}
-
-	if(hasBeen1m == true) {
-		Serial.println("has been 1m");
-	}
-
-	if(hasBeen10m == true) {
-		Serial.println("has been 10m");
-	}
-
-
-
-
-
-	// get data
-	brightnessMean[0] = analogRead(lightPin);
-	humidityMean[0] = dht.getHumidity();
-	tempMean[0] = dht.getTemperature();
-
-
-
-
-
-
-
-	// every second, read data and add to 5s rolling average
-
-	// every 5s, write 5s rolling average to 60s rolling average
-
-	// every 10m, average past  
-
-	// clear hasBeens
+// clear hasBeens
+void resetHasBeens() {
 	hasBeen1s = false;
 	hasBeen5s = false;
 	hasBeen1m = false;
 	hasBeen10m = false;
-
 }
-
-
 
 
 
